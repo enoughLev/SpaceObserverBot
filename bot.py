@@ -4,6 +4,8 @@ from aiogram.filters import Command
 import config
 import handlers
 
+print("Please, enter your bot token: ", end='')
+config.BOT_TOKEN = input()
 bot = Bot(token=config.BOT_TOKEN)
 dp = Dispatcher()
 
@@ -23,7 +25,7 @@ async def main():
 
     dp.callback_query.register(handlers.favorites_callback_handler, handlers.FavCallbackFactory.filter())
 
-    print("Бот запущен успешно.")
+    print("Cool, token is valid. The bot is running!")
     await dp.start_polling(bot)
 
 if __name__ == '__main__':
